@@ -1,6 +1,11 @@
 pipeline{
     agent any
 	stages{
+	   stage("docker pull latest code"){
+	      steps{
+		    bat "docker pull ankitc34/test-docker"
+		  }
+	   }
 	   stage("Start Grid"){
 	      steps{
 		    bat "docker-compose up -d hub chrome firefox"
