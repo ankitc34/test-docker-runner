@@ -11,11 +11,12 @@ pipeline{
 		    bat "docker-compose up book-flight-module search-module"
 		 }
 	   }
-	   stage("Bring Grid Down"){
-	      steps{
-		    bat "docker-compose down"
-		  }
-	   }
+	}
+	post{
+	   always{
+	      archiveArtifacts artifacts: 'output/**'
+		  bat "docker-compose down"
+	   }	
 	}
 
 }
