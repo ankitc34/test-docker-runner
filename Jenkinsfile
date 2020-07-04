@@ -3,7 +3,7 @@ pipeline{
 	stages{
 	   stage("pull latest Image"){
 	      steps{
-		    bat "docker pull ankitc34/test-docker"
+		    bat "docker pull ankitc34/test-docker:latest"
 		  }	   
        }
 	   stage("Start Grid"){
